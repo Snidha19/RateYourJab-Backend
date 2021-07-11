@@ -1,4 +1,4 @@
-package io.muzoo.RateYourJab.Backend.config;
+package io.muzoo.RateYourJab.Backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
