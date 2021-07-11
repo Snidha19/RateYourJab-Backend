@@ -1,4 +1,4 @@
-package io.muzoo.RateYourJab.Backend;
+package io.muzoo.RateYourJab.Backend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
