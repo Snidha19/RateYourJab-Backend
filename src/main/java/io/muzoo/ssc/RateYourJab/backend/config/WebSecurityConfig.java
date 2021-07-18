@@ -1,4 +1,4 @@
-package com.example.securingweb;
+package io.muzoo.ssc.RateYourJab.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.example.securingweb;
+package backend.example.securingweb;
 
 import org.junit.jupiter.api.Test;
 
