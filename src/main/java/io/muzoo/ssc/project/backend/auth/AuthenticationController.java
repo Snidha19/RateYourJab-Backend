@@ -57,7 +57,7 @@ public class AuthenticationController {
             return SimpleResponseDTO
                     .builder()
                     .success(false)
-                    .message(e.getMessage())
+                    .message(e.getMessage()) //i wanna see what is this error message so lego
                     .build();
         }
 
