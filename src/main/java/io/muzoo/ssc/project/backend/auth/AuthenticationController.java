@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class AuthenticationController {
 
+
+
     @GetMapping("/api/test")
     public String test(){
         return "If this message is shown, it means login is successful because we didn't set to permit this path.";

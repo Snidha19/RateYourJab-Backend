@@ -37,9 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		//permit root and /api/login and /api/logout
+		//permit root and /api/login , /api/logout and /api/register
 		http.authorizeRequests()
-				.antMatchers("/", "/api/login", "/api/logout").permitAll();
+				.antMatchers("/", "/api/login", "/api/logout", "/api/register").permitAll();
 
 		http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
 
@@ -49,6 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// set every other path to require authentication
 		http.authorizeRequests().antMatchers("/**").authenticated();
+
 	}
 
 

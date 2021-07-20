@@ -22,5 +22,11 @@ public class User {
 
     private String password;
 
+    private String gender;
+
+    private String fullName;
+
+    private String dateOfBirth;
+
     private String role;
 }
