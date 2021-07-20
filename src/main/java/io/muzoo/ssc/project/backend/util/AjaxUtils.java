@@ -13,7 +13,7 @@ public class AjaxUtils {
             mapper.writeValue(writer,objectValue);
             return  writer.toString();
         } catch (IOException e) {
-            return "[Bad object/convertion]";
+            return "[Bad object/conversion]";
         }
 
 

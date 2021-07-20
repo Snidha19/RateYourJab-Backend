@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		//permit root and api login, logout
-		http.authorizeRequests().antMatchers("/","/api/login","/api/logout").permitAll();
+		http.authorizeRequests().antMatchers("/","/api/login","/api/logout", "/api/whoami").permitAll();
 		//permit all OPTION requests
 		http.authorizeRequests().antMatchers(HttpMethod.OPTIONS,"/**").permitAll();
 
@@ -71,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 			String ajaxJson =  AjaxUtils.covertToString(SimpleResponseDTO
 					.builder()
-					.success(true)
+					.success(false)
 					.message("forbidden")
 					.build());
 

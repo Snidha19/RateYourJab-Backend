@@ -5,7 +5,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,11 +56,8 @@ public class AuthenticationController {
             return SimpleResponseDTO
                     .builder()
                     .success(false)
-                    .message(e.getMessage()) //i wanna see what is this error message so lego
+                    .message(e.getMessage()) //i wanna see what is this error message so lego -> so it says: Bad credentials
                     .build();
         }
-
-
     }
-
 }
