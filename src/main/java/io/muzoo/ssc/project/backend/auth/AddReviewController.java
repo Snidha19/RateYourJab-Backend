@@ -27,23 +27,23 @@ public class AddReviewController {
         //the user can actually add review many times so i dont need to check
         //if the username already existed in the ReviewRepository
         String username = request.getParameter("username");
-        int question1 = Integer.parseInt(request.getParameter("question1"));
-        int question2 = Integer.parseInt(request.getParameter("question2"));
-        int question3 = Integer.parseInt(request.getParameter("question3"));
-        int question4 = Integer.parseInt(request.getParameter("question4"));
-        int question5 = Integer.parseInt(request.getParameter("question5"));
-        int question6 = Integer.parseInt(request.getParameter("question6"));
+        String question1 = request.getParameter("question1");
+        String question2 = request.getParameter("question2");
+        String question3 = request.getParameter("question3");
+        String question4 = request.getParameter("question4");
+        String question5 = request.getParameter("question5");
+        String question6 = request.getParameter("question6");
         String tag = request.getParameter("tag");
         String newReview = request.getParameter("review");
 
         Review review = new Review();
         review.setUsername(username);
         review.setQuestion1(question1);
-        review.setQuestion1(question2);
-        review.setQuestion1(question3);
-        review.setQuestion1(question4);
-        review.setQuestion1(question5);
-        review.setQuestion1(question6);
+        review.setQuestion2(question2);
+        review.setQuestion3(question3);
+        review.setQuestion4(question4);
+        review.setQuestion5(question5);
+        review.setQuestion6(question6);
         review.setTag(tag);
         review.setReview(newReview);
         reviewRepository.save(review);

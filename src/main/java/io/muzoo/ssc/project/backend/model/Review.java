@@ -14,15 +14,14 @@ import javax.persistence.*;
 public class Review{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String username;
 
-    private int question1;
-    private int question2;
-    private int question3;
-    private int question4;
-    private int question5;
-    private int question6;
+    private String question1;
+    private String question2;
+    private String question3;
+    private String question4;
+    private String question5;
+    private String question6;
     private String review;
     private String tag;
 }

@@ -11,12 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class AuthenticationController {
 
-    @GetMapping("/api/homepage")
-    //this will be directed only a user is logged in
-    //once the user is here, all the reviews will be rendered
-    public String home(){
-    return "If this message is shown, it means login is successful";
-    }
+
 
     @PostMapping("/api/login")
     public SimpleResponseDTO login(HttpServletRequest request){
