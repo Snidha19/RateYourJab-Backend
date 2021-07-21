@@ -26,58 +26,59 @@ import java.io.IOException;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private OurUserDetailsService ourUserDetailsService;
+    @Autowired
+    private OurUserDetailsService ourUserDetailsService;
 
-	@Bean
-	public PasswordEncoder passwordEncoder(){
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
-		//permit root and api login, logout
-		http.authorizeRequests().antMatchers("/","/api/login","/api/logout", "/api/whoami").permitAll();
-		//permit all OPTION requests
-		http.authorizeRequests().antMatchers(HttpMethod.OPTIONS,"/**").permitAll();
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+        //permit root and api login, logout
+        http.authorizeRequests().antMatchers("/", "/api/login", "/api/logout", "/api/whoami", "api/homepage"
+                                                ,"api/addreview").permitAll();
+        //permit all OPTION requests
+        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
 
-		//handle error output as JSON file for  unauth'ed access
-		http.exceptionHandling()
-				.authenticationEntryPoint(new JsonHttp403ForbiddenEntryPoint());
+        //handle error output as JSON file for  unauth'ed access
+        http.exceptionHandling()
+                .authenticationEntryPoint(new JsonHttp403ForbiddenEntryPoint());
 
-		// set every other path to require authentication
-		http.authorizeRequests().antMatchers("/**").authenticated();
-	}
+        // set every other path to require authentication
+        http.authorizeRequests().antMatchers("/**").authenticated();
+    }
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
-	}
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+    }
 
-	@Override
-	public UserDetailsService userDetailsService() {
-		return ourUserDetailsService;
-	}
+    @Override
+    public UserDetailsService userDetailsService() {
+        return ourUserDetailsService;
+    }
 
-	class JsonHttp403ForbiddenEntryPoint implements AuthenticationEntryPoint{
+    class JsonHttp403ForbiddenEntryPoint implements AuthenticationEntryPoint {
 
-		@Override
-		public void commence(HttpServletRequest httpServletRequest,
-							 HttpServletResponse httpServletResponse,
-							 AuthenticationException e) throws IOException, ServletException {
-			//output JSON message
-			//for now just print the message out
+        @Override
+        public void commence(HttpServletRequest httpServletRequest,
+                             HttpServletResponse httpServletResponse,
+                             AuthenticationException e) throws IOException, ServletException {
+            //output JSON message
+            //for now just print the message out
 
-			String ajaxJson =  AjaxUtils.covertToString(SimpleResponseDTO
-					.builder()
-					.success(false)
-					.message("forbidden")
-					.build());
+            String ajaxJson = AjaxUtils.covertToString(SimpleResponseDTO
+                    .builder()
+                    .success(false)
+                    .message("forbidden")
+                    .build());
 
-			httpServletResponse.setCharacterEncoding("UTF-8");
-			httpServletResponse.setContentType("application/jason");
-			httpServletResponse.getWriter().println(ajaxJson);
-		}
-	}
+            httpServletResponse.setCharacterEncoding("UTF-8");
+            httpServletResponse.setContentType("application/jason");
+            httpServletResponse.getWriter().println(ajaxJson);
+        }
+    }
 }
