@@ -26,7 +26,7 @@ public class InitApplicationRunner implements ApplicationRunner {
             admin.setUsername("ing");
             admin.setPassword(passwordEncoder.encode("Password"));
             admin.setRole("USER");
-            admin.setDateOfBirth("21/11/2000");
+            admin.setAge(21);
             admin.setGender("MALE");
             admin.setFullName("Jirayu Apivisankij");
             userRepository.save(admin);

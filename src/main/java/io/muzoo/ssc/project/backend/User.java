@@ -26,7 +26,7 @@ public class User {
 
     private String fullName;
 
-    private String dateOfBirth;
+    private Integer age;
 
     private String role;
 }

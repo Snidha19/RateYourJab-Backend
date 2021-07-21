@@ -4,6 +4,7 @@ import io.muzoo.ssc.project.backend.SimpleResponseDTO;
 import io.muzoo.ssc.project.backend.User;
 import io.muzoo.ssc.project.backend.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,14 +33,15 @@ public class RegistrationController {
         } else {
             String password = request.getParameter("password");
             String fullName = request.getParameter("fullName");
-            String birthDate = request.getParameter("dateOfBirth");
+            //fix it
+            String age = request.getParameter("age");
             String gender = request.getParameter("gender");
 
             User user = new User();
             user.setUsername(username);
             user.setPassword(passwordEncoder.encode(password));
             user.setRole("USER");
-            user.setDateOfBirth(birthDate);
+            user.setAge(Integer.valueOf(age));
             user.setGender(gender);
             user.setFullName(fullName);
             userRepository.save(user);
