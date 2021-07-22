@@ -25,5 +25,7 @@ public class Review{
     private String question5;
     private String question6;
     private String review;
+    private Integer age;
+    private String gender;
     private String tag;
 }

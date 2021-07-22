@@ -5,6 +5,7 @@ import io.muzoo.ssc.project.backend.ReviewRepository;
 import io.muzoo.ssc.project.backend.SimpleResponseDTO;
 import io.muzoo.ssc.project.backend.UserRepository;
 import io.muzoo.ssc.project.backend.model.Review;
+import io.muzoo.ssc.project.backend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,9 @@ public class AddReviewController {
 
     @Autowired
     ReviewRepository reviewRepository;
+
+   @Autowired
+   UserRepository userRepository;
 
     //User will be adding the review
     @PostMapping("api/addreview")
@@ -31,6 +35,8 @@ public class AddReviewController {
         String question6 = request.getParameter("question6");
         String tag = request.getParameter("tag");
         String newReview = request.getParameter("review");
+        Integer age = userRepository.findFirstByUsername(request.getRemoteUser()).getAge();
+        String gender =userRepository.findFirstByUsername(request.getRemoteUser()).getGender();
 
         Review review = new Review();
         review.setUsername(username);
@@ -40,6 +46,8 @@ public class AddReviewController {
         review.setQuestion4(question4);
         review.setQuestion5(question5);
         review.setQuestion6(question6);
+        review.setAge(age);
+        review.setGender(gender);
         review.setTag(tag);
         review.setReview(newReview);
         reviewRepository.save(review);

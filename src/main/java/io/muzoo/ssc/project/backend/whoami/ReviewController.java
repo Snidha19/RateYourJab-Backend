@@ -8,6 +8,7 @@ import io.muzoo.ssc.project.backend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,7 @@ public class ReviewController {
     @Autowired
     ReviewRepository reviewRepository;
 
-    @GetMapping("/api/searchbytag")
+    @PostMapping("/api/searchbytag")
     public ReviewDTO taggedReviews(HttpServletRequest request){
         try {
             Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
