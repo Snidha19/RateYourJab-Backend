@@ -14,10 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class AddReviewController {
 
-    //store review in the database
-    @Autowired
-    UserRepository userRepository;
-
     @Autowired
     ReviewRepository reviewRepository;
 
