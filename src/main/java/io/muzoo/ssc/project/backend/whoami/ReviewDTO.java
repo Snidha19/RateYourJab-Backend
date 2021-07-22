@@ -13,6 +13,5 @@ import java.util.List;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ReviewDTO {
-    private boolean loggedIn=false ;
     List<Review> reviews;
 }

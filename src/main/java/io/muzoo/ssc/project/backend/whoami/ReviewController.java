@@ -33,18 +33,15 @@ public class ReviewController {
                 String tag = request.getParameter("tag");
                 List<Review> reviews = reviewRepository.findReviewsByTag(tag);
                 return ReviewDTO.builder()
-                        .loggedIn(true)
                         .reviews(reviews).build();
             }
         } catch (Exception e) {
             //user is not log in
             return ReviewDTO.builder()
-                    .loggedIn(false)
                     .build();
         }
         //user is not log in
         return ReviewDTO.builder()
-                .loggedIn(false)
                 .build();
 
     }
@@ -57,18 +54,15 @@ public class ReviewController {
             if (principal != null && principal instanceof org.springframework.security.core.userdetails.User) {
                 List<Review> reviews = reviewRepository.findAll();
                 return ReviewDTO.builder()
-                        .loggedIn(true)
                         .reviews(reviews).build();
             }
         } catch (Exception e) {
             //user is not log in
             return ReviewDTO.builder()
-                    .loggedIn(false)
                     .build();
         }
         //user is not log in
         return ReviewDTO.builder()
-                .loggedIn(false)
                 .build();
 
         }

@@ -12,8 +12,10 @@ import javax.persistence.*;
 @Setter
 @Table(name = "tbl_review")
 public class Review{
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     private String username;
 
     private String question1;
