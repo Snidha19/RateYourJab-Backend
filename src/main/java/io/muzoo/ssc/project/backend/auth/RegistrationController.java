@@ -1,10 +1,9 @@
 package io.muzoo.ssc.project.backend.auth;
 
-import io.muzoo.ssc.project.backend.SimpleResponseDTO;
-import io.muzoo.ssc.project.backend.User;
-import io.muzoo.ssc.project.backend.UserRepository;
+import io.muzoo.ssc.project.backend.dto.SimpleResponseDTO;
+import io.muzoo.ssc.project.backend.model.User;
+import io.muzoo.ssc.project.backend.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +32,6 @@ public class RegistrationController {
         } else {
             String password = request.getParameter("password");
             String fullName = request.getParameter("fullName");
-            //fix it
             String age = request.getParameter("age");
             String gender = request.getParameter("gender");
 

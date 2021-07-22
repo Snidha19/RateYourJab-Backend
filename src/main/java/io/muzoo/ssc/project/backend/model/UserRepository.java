@@ -1,5 +1,6 @@
-package io.muzoo.ssc.project.backend;
+package io.muzoo.ssc.project.backend.model;
 
+import io.muzoo.ssc.project.backend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -7,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User findFirstByUsername(String username);
+
 }

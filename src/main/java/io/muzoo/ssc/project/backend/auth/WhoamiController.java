@@ -1,7 +1,8 @@
-package io.muzoo.ssc.project.backend.whoami;
+package io.muzoo.ssc.project.backend.auth;
 
-import io.muzoo.ssc.project.backend.User;
-import io.muzoo.ssc.project.backend.UserRepository;
+import io.muzoo.ssc.project.backend.dto.WhoamiDTO;
+import io.muzoo.ssc.project.backend.model.User;
+import io.muzoo.ssc.project.backend.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
