@@ -1,7 +1,7 @@
 package io.muzoo.ssc.project.backend.init;
 
 import io.muzoo.ssc.project.backend.model.User;
-import io.muzoo.ssc.project.backend.UserRepository;
+import io.muzoo.ssc.project.backend.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

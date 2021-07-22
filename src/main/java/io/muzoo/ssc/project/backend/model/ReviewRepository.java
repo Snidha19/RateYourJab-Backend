@@ -1,4 +1,4 @@
-package io.muzoo.ssc.project.backend;
+package io.muzoo.ssc.project.backend.model;
 
 import io.muzoo.ssc.project.backend.model.Review;
 import org.springframework.data.jpa.repository.JpaRepository;

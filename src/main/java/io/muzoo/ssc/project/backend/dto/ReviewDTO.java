@@ -1,4 +1,4 @@
-package io.muzoo.ssc.project.backend.whoami;
+package io.muzoo.ssc.project.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.muzoo.ssc.project.backend.model.Review;

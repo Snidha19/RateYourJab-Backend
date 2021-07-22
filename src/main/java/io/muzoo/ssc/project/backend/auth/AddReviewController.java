@@ -1,11 +1,10 @@
 package io.muzoo.ssc.project.backend.auth;
 
 
-import io.muzoo.ssc.project.backend.ReviewRepository;
-import io.muzoo.ssc.project.backend.SimpleResponseDTO;
-import io.muzoo.ssc.project.backend.UserRepository;
+import io.muzoo.ssc.project.backend.model.ReviewRepository;
+import io.muzoo.ssc.project.backend.dto.SimpleResponseDTO;
+import io.muzoo.ssc.project.backend.model.UserRepository;
 import io.muzoo.ssc.project.backend.model.Review;
-import io.muzoo.ssc.project.backend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
