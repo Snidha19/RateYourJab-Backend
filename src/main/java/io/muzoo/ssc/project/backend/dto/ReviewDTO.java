@@ -14,4 +14,5 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ReviewDTO {
     List<Review> reviews;
+    String message;
 }

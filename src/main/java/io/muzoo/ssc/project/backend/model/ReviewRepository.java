@@ -14,8 +14,8 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 //            nativeQuery = true)
     List<Review> findReviewsByTag(String tag);
 
-
-//    @Query( value = "select r.username, r.tag, r.review from  tbl_review r",
-//            nativeQuery = true)
     List<Review> findAll();
+    Review findReviewByUsername(String username);
+
+
 }
